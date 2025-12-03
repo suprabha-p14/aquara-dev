@@ -1,0 +1,392 @@
+@font-face {
+    font-family: 'Lostar';
+    src: url('../fonts/Lostar.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* --- Base and Reset Styles --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #FDFBEF;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* --- 1. Header and Navigation --- */
+#main-header {
+    background: #081B2C;
+    color: white;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo a img {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
+.nav-toggle {
+    background: #081B2C;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* Side Navigation Menu */
+#side-nav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    right: 0;
+    background-color: #59CCAF;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+#side-nav.open {
+    width: 250px;
+}
+
+@media (min-width: 768px) {
+    #side-nav.open {
+        width: 300px;
+    }
+}
+
+#side-nav ul {
+    list-style: none;
+}
+
+#side-nav a {
+    color: white;
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    display: block;
+    transition: 0.3s;
+}
+
+#side-nav a:hover {
+    color: #114A67;
+}
+
+.close-btn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* --- 2. Welcome Banner (Wave Section) --- */
+#simple-waves {
+    background: #FDFBEF;
+}
+
+#simple-waves .inner-header {
+    height: 65vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#simple-waves .flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+}
+
+#simple-waves h5 {
+    color: white;
+    font-family: Calibri, sans-serif;
+    letter-spacing: 0.1em;
+    font-size: 1.2em;
+    margin-top: 0px;
+    font-weight: lighter;
+}
+
+#simple-waves h1 {
+    font-family: 'Lostar', Arial, sans-serif;
+    font-size: 4em;
+    letter-spacing: 0.05em;
+    font-weight: lighter;
+    margin: 0;
+    color: white;
+}
+
+/* Waves Styling */
+#simple-waves .waves {
+    position: relative;
+    width: 100%;
+    height: 15vh;
+    min-height: 100px;
+    max-height: 150px;
+    margin-bottom: -7px;
+}
+
+#simple-waves .waves use:nth-child(1) {
+    fill: #ffffff;
+}
+#simple-waves .waves use:nth-child(2) {
+    fill: #59CCAF;
+}
+#simple-waves .waves use:nth-child(3) {
+    fill: #114A67;
+}
+#simple-waves .waves use:nth-child(4) {
+    fill: #081B2C;
+}
+
+#simple-waves .parallax > use {
+    animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+}
+#simple-waves .parallax > use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+}
+#simple-waves .parallax > use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+}
+#simple-waves .parallax > use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+}
+#simple-waves .parallax > use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+}
+@keyframes move-forever {
+    0% { transform: translate3d(-90px,0,0); }
+    100% { transform: translate3d(85px,0,0); }
+}
+
+@media (max-width: 768px) {
+    #simple-waves .waves {
+        height: 40px;
+        min-height: 40px;
+    }
+    #simple-waves h1 {
+        font-size: 2.5em;
+    }
+}
+
+/* -------------------------------------- */
+/* --- 3. Product Grid (Main Section) --- */
+/* -------------------------------------- */
+#product-grid {
+    /* UPDATED: Default column count increased to 4 */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    gap: 4.5em; /* Maintained the previously increased gap */
+    
+    /* Centering the grid within the container */
+    justify-content: center;
+    
+    /* Maintain spacing */
+    margin: 5em auto;
+    width: max-content; 
+}
+
+.product-card {
+    /* Base for the vertically long rectangle shape */
+    background: white; 
+    position: relative;
+    
+    /* Set height to make it vertically long */
+    height: 380px; 
+    width: 280px; 
+
+    
+    border-radius: 0;
+    display: block; 
+    text-align: center;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.3s ease;
+}
+
+/* --- Overlay Container for the Button (HTML: .product-overlay) --- */
+.product-card .product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 60px); 
+    z-index: 3; 
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+}
+
+.product-card:hover .product-overlay {
+    opacity: 1; 
+}
+
+
+/* --- Capsule Button Style (HTML: .view-product-btn) --- */
+.view-product-btn {
+    background-color: white;
+    color: #081B2C; 
+    border: none;
+    border-radius: 50px; 
+    
+    width: 60px;
+    height: 60px;
+    font-size: 1.4em; 
+    
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.view-product-btn:hover {
+    transform: scale(1.1); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Radial Darkening Overlay on Hover --- */
+
+/* 1. Create the Overlay Pseudo-element */
+.product-card::before {
+    content: '';
+    position: absolute;
+    
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 60px); 
+    
+    z-index: 2; 
+    background: rgba(0, 0, 0, 0.25); 
+    opacity: 0; 
+    
+    clip-path: circle(0% at 0% 0%); 
+    transition: opacity 0.4s ease, clip-path 0.5s ease-out; 
+}
+
+/* 2. Activate the Overlay on Hover */
+.product-card:hover::before {
+    opacity: 1; 
+    clip-path: circle(150% at 0% 0%); 
+}
+
+/* --- Image Placement --- */
+.product-card .card-image {
+    width: 100%;
+    height: calc(100% - 60px); 
+    object-fit: cover;
+    display: block;
+    position: static; 
+    
+    z-index: 1; 
+    border-radius: 0;
+    transition: transform 0.2s; 
+}
+
+/* --- Hover Effects --- */
+.product-card:hover {
+    transform: translateY(0); 
+    transition: transform 0.2s, box-shadow 0.3s ease;
+
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25); 
+}
+
+/* -------------------------------------- */
+/* --- MEDIA QUERIES for Responsive Grid --- */
+/* -------------------------------------- */
+
+/* Default is 4 columns */
+
+@media screen and (max-width: 1285px) {
+    #product-grid {
+        /* UPDATED: Increased to 3 columns (was 2) */
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #product-grid {
+        /* UPDATED: Increased to 2 columns (was 1) */
+        grid-template-columns: 1fr 1fr;
+        /* Ensure 2-column layout centers cards */
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    /* Smallest screens should now show 1 column */
+    #product-grid {
+        grid-template-columns: 1fr; /* 1 column */
+        padding: 0 2rem;
+        justify-content: center;
+    }
+}
+
+/* --- 4. Footer --- */
+#main-footer {
+    background: #081B2C;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+}
+
+.social-icons {
+    margin-bottom: 10px;
+}
+
+.social-icons a {
+    color: #59CCAF;
+    font-size: 1.8em;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: white;
+}
+
+#main-footer p {
+    font-size: 0.9em;
+}
