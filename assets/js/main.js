@@ -1,5 +1,5 @@
 // --- Configuration ---
-const whatsappNumber = '1234567890'; // ⚠️ REPLACE with your full WhatsApp number (e.g., '919876543210')
+const whatsappNumber = '919819478847'; // ⚠️ REPLACE with your full WhatsApp number (e.g., '919876543210')
 
 // --- Navigation Toggle Logic (kept for completeness) ---
 const navToggle = document.querySelector('.nav-toggle');
@@ -42,4 +42,5 @@ productButtons.forEach(button => {
         // Open WhatsApp chat in a new tab
         window.open(whatsappUrl, '_blank');
     });
+
 });
